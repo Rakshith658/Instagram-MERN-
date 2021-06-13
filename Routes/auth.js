@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 //RIGISTER
 
-router.post('/rigister',async(req,res)=>{
+router.post('/register',async(req,res)=>{
     
     try {
         // genrateing the new password by useing bcrypt to keep password safe
