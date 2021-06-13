@@ -1,12 +1,18 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './Tabbar.css'
 import { Chat, Person, Search,Notifications } from '@material-ui/icons'
+import {Link} from 'react-router-dom'
+import { AuthContext } from "../../context/Authcontext"
 
 const Tabbar = () => {
+    const { user } = useContext(AuthContext)
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
         <div className="topbarcontainer">
             <div className="topbarleft">
-                <span className="logo">Instagram</span>
+                <Link to="/" style={{textDecoration:"none"}}>
+                    <span className="logo">Instagram</span>
+                </Link>
             </div>
             <div className="topbarmid">
                 <div className="searchbar">
@@ -33,7 +39,9 @@ const Tabbar = () => {
                         <span className="topbariconBadge">1</span>
                     </div>
                 </div>
-                <img src="/assets/person/1.jpeg" alt="" className="topbarImage" />
+                <Link to={`profile/${ user.username}`} style={{textDecoration:"none"}}>
+                    <img src={ user.profilePicture ? PF+user.profilePicture: PF+"/person/1.jpeg"} alt="" className="topbarImage" />
+                </Link>
             </div>
         </div>
     )
