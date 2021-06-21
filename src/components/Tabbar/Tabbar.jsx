@@ -30,10 +30,12 @@ const Tabbar = () => {
                         <Person/>
                         <span className="topbariconBadge">1</span>
                     </div>
-                    <div className="topbarIconitem">
-                        <Chat/>
-                        <span className="topbariconBadge">1</span>
-                    </div>
+                    <Link to="/messenger" style={{textDecoration:"none"}}>
+                        <div className="topbarIconitem">
+                            <Chat/>
+                            <span className="topbariconBadge">1</span>
+                        </div>
+                    </Link>
                     <div className="topbarIconitem">
                         <Notifications/>
                         <span className="topbariconBadge">1</span>

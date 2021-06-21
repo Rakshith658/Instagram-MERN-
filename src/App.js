@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/Authcontext';
+import Messenger from './Pages/messenger/Messenger'
 
 function App() {
   const {user}=useContext(AuthContext)
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/register">
             {user ? <Redirect to="/"/>:<Register/>}
+          </Route>
+          <Route path="/messenger">
+          {!user ? <Redirect to="/"/>:<Messenger/>}
           </Route>
         </Switch>
     </Router>
